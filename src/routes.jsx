@@ -1,26 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Login, Register } from "./Views/Auth";
 import { Home } from "./Views/Home";
+import AuthLayout from "./Views/Layouts/AuthLayout";
+import DashLayout from "./Views/Layouts/DashLayout";
 
 const routes = createBrowserRouter([
   {
-    name: "Login",
-    path: "/",
-    element: <Login />,
-    layout: "Auth",
+    element: <AuthLayout />,
+    children: [
+      { path: "/", element: <Login /> },
+      { path: "/register", element: <Register /> },
+    ],
   },
   {
-    name: "Register",
-    path: "/register",
-    element: <Register />,
-    layout: "Auth",
-  },
-  {
-    name: "Home",
     path: "/dash",
     element: <Home />,
-    layout: "Dash",
   },
 ]);
 
 export default routes;
+
+// https://blog.logrocket.com/react-router-v6-guide/

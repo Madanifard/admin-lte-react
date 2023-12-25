@@ -1,5 +1,7 @@
-const Login = () => {
-    return <>Login</>
-}
+import AuthLayout from "../Layouts/AuthLayout";
 
-export default Login
+const Login = () => {
+  return <>hellooooooooooooooo</>;
+};
+
+export default Login;
