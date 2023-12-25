@@ -1,7 +1,10 @@
-import AuthLayout from "../Layouts/AuthLayout";
-
 const Login = () => {
-  return <>hellooooooooooooooo</>;
+  console.log('LOGIIIIIIIIN');
+  return (
+    <h1>
+      hellooooooooooooooo
+    </h1>
+  );
 };
 
 export default Login;
