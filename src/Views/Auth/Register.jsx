@@ -6,6 +6,7 @@ import {
   faEnvelope,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
+import AuthSocial from "./AuthSocial";
 
 const Register = () => {
   return (
@@ -75,16 +76,7 @@ const Register = () => {
         </div>
       </form>
 
-      <div className="social-auth-links text-center">
-        <a href="#" className="btn btn-block btn-primary">
-          <i className="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" className="btn btn-block btn-danger">
-          <i className="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div>
+      <AuthSocial />
 
       <Link to="/" className="text-center">
         I already have a membership

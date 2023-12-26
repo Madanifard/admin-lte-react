@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fas, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import AuthSocial from "./AuthSocial";
 
 const Login = () => {
   return (
@@ -43,14 +44,8 @@ const Login = () => {
         </div>
       </form>
 
-      <div className="social-auth-links text-center mt-2 mb-3">
-        <a href="#" className="btn btn-block btn-primary">
-          <i className="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" className="btn btn-block btn-danger">
-          <i className="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
+      <AuthSocial />
+
       <p className="mb-1">
         <Link to="/forget-password" className="text-center">
           I forgot my password
