@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Login, Register, ForgetPassword } from "./Views/Auth";
-import { Home } from "./Views/Home";
+import { Dashboard } from "./Views/AdminPanel";
 import AuthLayout from "./Views/Layouts/AuthLayout";
 import DashLayout from "./Views/Layouts/DashLayout";
 
@@ -15,7 +15,7 @@ const routes = createBrowserRouter([
   },
   {
     path: "/dash",
-    element: <Home />,
+    element: <Dashboard />,
   },
 ]);
 
