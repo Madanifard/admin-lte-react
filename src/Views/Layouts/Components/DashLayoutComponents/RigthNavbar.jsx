@@ -10,11 +10,13 @@ import {
   faEnvelope,
   faUser,
   faFile,
-  faExpand,
   faExpandArrowsAlt,
   faThLarge,
 } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import user1 from "../../../../assets/images/user1-128x128.jpg";
+import user3 from "../../../../assets/images/user3-128x128.jpg";
+import user8 from "../../../../assets/images/user8-128x128.jpg";
 
 const RigthNavbar = () => {
   return (
@@ -63,7 +65,7 @@ const RigthNavbar = () => {
           <a href="#" className="dropdown-item">
             <div className="media">
               <img
-                src="dist/img/user1-128x128.jpg"
+                src={user1}
                 alt="User Avatar"
                 className="img-size-50 mr-3 img-circle"
               />
@@ -85,7 +87,7 @@ const RigthNavbar = () => {
           <a href="#" className="dropdown-item">
             <div className="media">
               <img
-                src="dist/img/user8-128x128.jpg"
+                src={user8}
                 alt="User Avatar"
                 className="img-size-50 img-circle mr-3"
               />
@@ -107,7 +109,7 @@ const RigthNavbar = () => {
           <a href="#" className="dropdown-item">
             <div className="media">
               <img
-                src="dist/img/user3-128x128.jpg"
+                src={user3}
                 alt="User Avatar"
                 className="img-size-50 img-circle mr-3"
               />
