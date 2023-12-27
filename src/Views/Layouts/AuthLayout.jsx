@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import {} from "./styles/adminlte.css";
+import "./styles/adminlte.css";
 
 const AuthLayout = () => {
   return (

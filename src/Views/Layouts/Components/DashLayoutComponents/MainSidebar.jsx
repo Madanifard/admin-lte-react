@@ -1,15 +1,16 @@
 import BrandLogo from "./BrandLogo";
 import AdminLoginLogo from "./AdminLoginLogo";
 import SideBarSearch from "./SideBarSearch";
+import SideBarMenu from "./SideBarMenu";
 
 const MainSidebar = () => {
   return (
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside className="main-sidebar sidebar-dark-primary elevation-4">
       <BrandLogo />
-      <div class="sidebar">
+      <div className="sidebar">
         <AdminLoginLogo />
         <SideBarSearch />
-        {/* <!-- Sidebar Menu --> */}
+        <SideBarMenu />
       </div>
     </aside>
   );

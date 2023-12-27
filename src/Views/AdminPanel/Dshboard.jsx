@@ -1,13 +1,5 @@
-import Navbar from "./Components/Navbar";
-
 const Dashboard = () => {
-  return (
-    <div className="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-      <div className="wrapper">
-        <Navbar />
-      </div>
-    </div>
-  );
+  return <h1>Hello DashBoard</h1>;
 };
 
 export default Dashboard;

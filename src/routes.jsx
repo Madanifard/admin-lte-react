@@ -14,8 +14,8 @@ const routes = createBrowserRouter([
     ],
   },
   {
-    path: "/dash",
-    element: <Dashboard />,
+    element: <DashLayout />,
+    children: [{ path: "/dash", element: <Dashboard /> }],
   },
 ]);
 
