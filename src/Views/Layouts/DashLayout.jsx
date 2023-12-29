@@ -7,7 +7,7 @@ import MainSidebar from "./Components/DashLayoutComponents/MainSidebar";
 
 const DashLayout = () => {
   return (
-    <div className="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div className="hold-transition dark-mode sidebar-mini layout-fixed ">
       <div className="wrapper">
         {/* <div className="preloader flex-column justify-content-center align-items-center">
           <img
@@ -20,6 +20,7 @@ const DashLayout = () => {
         </div> */}
 
         <Navbar />
+
         <MainSidebar />
 
         <div className="content-wrapper">
@@ -29,12 +30,14 @@ const DashLayout = () => {
             <Outlet /> {/* <!-- Main content --> */}
           </section>
         </div>
+
         <aside className="control-sidebar control-sidebar-dark">
           {/* <!-- Control sidebar content goes here --> */}
         </aside>
+
         <footer className="main-footer">
           <strong>
-            Copyright &copy; 2014-2021{" "}
+            Copyright &copy; 2014-2021
             <a href="https://adminlte.io">AdminLTE.io</a>.
           </strong>
           All rights reserved.
