@@ -4,13 +4,29 @@ import {
   faBars
 } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { showLeftMenu, hiddeLeftMenu, stateLeftMenu } from "../../../../app/leftMenu/leftMenuSlice";
 
 
 const LeftNavbar = () => {
+
+  const dispatch = useDispatch();
+  const stateMenu = useSelector(stateLeftMenu);
+
+  const toggleMenu = () => {
+    console.log(stateMenu);
+    if (stateMenu) {
+       dispatch(hiddeLeftMenu());
+    } else {
+      console.log('SSSSSSSSSSSSSSSSSSS');
+      dispatch(showLeftMenu());
+    }
+  }
+
   return (
     <ul className="navbar-nav">
       <li className="nav-item">
-        <a className="nav-link" href="#" role="button">
+        <a className="nav-link" role="button" onClick={toggleMenu}>
           <FontAwesomeIcon icon={(fas, faBars)} />
         </a>
       </li>
