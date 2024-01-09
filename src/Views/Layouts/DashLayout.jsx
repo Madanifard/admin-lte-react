@@ -4,10 +4,15 @@ import PageHeader from "./Components/DashLayoutComponents/PageHeader";
 import "./styles/adminlte.css";
 // import "./styles/OverlayScrollbars.css";
 import MainSidebar from "./Components/DashLayoutComponents/MainSidebar";
+import { useSelector } from 'react-redux'
+import { stateLeftMenu } from "../../app/leftMenu/leftMenuSlice";
 
 const DashLayout = () => {
+
+  const stateMenu = useSelector(stateLeftMenu);
+
   return (
-    <div className="hold-transition dark-mode sidebar-mini layout-fixed ">
+    <div className={`hold-transition dark-mode sidebar-mini layout-fixed ${stateMenu}`}>
       <div className="wrapper">
         {/* <div className="preloader flex-column justify-content-center align-items-center">
           <img

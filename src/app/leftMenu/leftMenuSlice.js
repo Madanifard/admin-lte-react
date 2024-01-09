@@ -6,9 +6,12 @@ export const leftMenuSlice = createSlice({
         value: ""
     },
     reducers: {
-        showLeftMenu: (state) => {
-            // console.log(newValue, "===========================");
-            state.value = "ADD CLEASS"
+        showLeftMenu: (state, customeClass="") => {
+            if (customeClass.payload) {
+                state.value = customeClass.payload
+            } else {
+                state.value = "sidebar-collapse"
+            } 
         },
         hiddeLeftMenu: (state) => {
             state.value = ""

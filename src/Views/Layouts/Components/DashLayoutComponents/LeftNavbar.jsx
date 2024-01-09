@@ -3,7 +3,7 @@ import {
   fas,
   faBars
 } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { showLeftMenu, hiddeLeftMenu, stateLeftMenu } from "../../../../app/leftMenu/leftMenuSlice";
 
@@ -18,7 +18,6 @@ const LeftNavbar = () => {
     if (stateMenu) {
        dispatch(hiddeLeftMenu());
     } else {
-      console.log('SSSSSSSSSSSSSSSSSSS');
       dispatch(showLeftMenu());
     }
   }
