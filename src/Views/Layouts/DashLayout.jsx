@@ -12,7 +12,7 @@ const DashLayout = () => {
   const stateMenu = useSelector(stateLeftMenu);
 
   return (
-    <div className={`hold-transition dark-mode sidebar-mini layout-fixed ${stateMenu}`}>
+    <div className={`hold-transition dark-mode sidebar-mini layout-fixed ${stateMenu}`} >
       <div className="wrapper">
         {/* <div className="preloader flex-column justify-content-center align-items-center">
           <img

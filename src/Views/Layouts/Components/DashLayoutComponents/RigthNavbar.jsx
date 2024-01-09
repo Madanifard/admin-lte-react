@@ -17,8 +17,53 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import user1 from "../../../../assets/images/user1-128x128.jpg";
 import user3 from "../../../../assets/images/user3-128x128.jpg";
 import user8 from "../../../../assets/images/user8-128x128.jpg";
+import { useState } from "react";
 
 const RigthNavbar = () => {
+
+  const [stateShowSearchNavbar, setStateShowSearchNavbar] = useState("");
+  const [stateShowComment, setStateShowComment] = useState("");
+  const [stateShowNotification, setStateShowNotification] = useState("");
+  const [stateFullScreen, setStateFullScrren] = useState(false);
+
+  const showSearchNavbar = () => {
+    if (stateShowSearchNavbar) {
+      setStateShowSearchNavbar("");
+    } else {
+      setStateShowSearchNavbar("navbar-search-open");
+      setStateShowComment("");
+      setStateShowNotification("");
+    }
+  }
+
+  const showComment = () => {
+    if (stateShowComment) {
+      setStateShowComment("");
+    } else {
+      setStateShowComment("show");
+      setStateShowNotification("");
+    }
+  }
+
+  const showNotification = () => {
+    if (stateShowNotification) {
+      setStateShowNotification("");
+    } else {
+      setStateShowNotification("show");
+      setStateShowComment("");
+    }
+  }
+
+  const createFullScreen = () => {
+    if (stateFullScreen) {
+      setStateFullScrren(false);
+      document.exitFullscreen();
+    } else {
+      setStateFullScrren(true);
+      document.documentElement.requestFullscreen();
+    }
+  }
+
   return (
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
@@ -27,10 +72,11 @@ const RigthNavbar = () => {
           data-widget="navbar-search"
           href="#"
           role="button"
+          onClick={ showSearchNavbar }
         >
           <FontAwesomeIcon icon={(fas, faSearch)} />
         </a>
-        <div className="navbar-search-block">
+        <div className={`navbar-search-block ${stateShowSearchNavbar}`}>
           <form className="form-inline">
             <div className="input-group input-group-sm">
               <input
@@ -40,13 +86,15 @@ const RigthNavbar = () => {
                 aria-label="Search"
               />
               <div className="input-group-append">
-                <button className="btn btn-navbar" type="submit">
+                <button className="btn btn-navbar" type="submit" title="DO Search">
                   <FontAwesomeIcon icon={(fas, faSearch)} />
                 </button>
                 <button
                   className="btn btn-navbar"
                   type="button"
                   data-widget="navbar-search"
+                  title="close search"
+                  onClick={ showSearchNavbar }
                 >
                   <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
@@ -57,11 +105,11 @@ const RigthNavbar = () => {
       </li>
 
       <li className="nav-item dropdown">
-        <a className="nav-link" data-toggle="dropdown" href="#">
+        <a className="nav-link" data-toggle="dropdown" onClick={showComment}>
           <FontAwesomeIcon icon={(fas, faComment)} />
           <span className="badge badge-danger navbar-badge">3</span>
         </a>
-        <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <div className={`dropdown-menu dropdown-menu-lg dropdown-menu-right ${stateShowComment}`}>
           <a href="#" className="dropdown-item">
             <div className="media">
               <img
@@ -134,11 +182,11 @@ const RigthNavbar = () => {
         </div>
       </li>
       <li className="nav-item dropdown">
-        <a className="nav-link" data-toggle="dropdown" href="#">
+        <a className="nav-link" data-toggle="dropdown" onClick={showNotification}>
           <FontAwesomeIcon icon={(far, faBell)} />
           <span className="badge badge-warning navbar-badge">15</span>
         </a>
-        <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <div className={`dropdown-menu dropdown-menu-lg dropdown-menu-right ${stateShowNotification}`}>
           <span className="dropdown-item dropdown-header">
             15 Notifications
           </span>
@@ -164,7 +212,7 @@ const RigthNavbar = () => {
         </div>
       </li>
       <li className="nav-item">
-        <a className="nav-link" data-widget="fullscreen" href="#" role="button">
+        <a className="nav-link" data-widget="fullscreen" onClick={createFullScreen} role="button">
           <FontAwesomeIcon icon={(far, faExpandArrowsAlt)} />
         </a>
       </li>
