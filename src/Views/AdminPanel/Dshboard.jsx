@@ -1,8 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faArrowDown,
+  faArrowLeft,
+  faArrowUp,
+  faCaretDown,
+  faCaretLeft,
+  faCaretUp,
+  faCloudDownloadAlt,
   faCog,
+  faComment,
+  faComments,
+  faHeart,
   faMinus,
+  faPlus,
   faShoppingCart,
+  faTag,
   faThumbsUp,
   faTimes,
   faUsers,
@@ -10,9 +22,149 @@ import {
   fas,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import Chart from "chart.js/auto";
+import { Line, Pie } from "react-chartjs-2";
+import IranMap from "./Components/IranMap/IranMap";
+import user1 from "../../assets/images/user1-128x128.jpg";
+import user2 from "../../assets/images/user2-160x160.jpg";
+import user7 from "../../assets/images/user7-128x128.jpg";
+import user3 from "../../assets/images/user3-128x128.jpg";
+import user5 from "../../assets/images/user5-128x128.jpg";
+import user6 from "../../assets/images/user6-128x128.jpg";
+import user8 from "../../assets/images/user8-128x128.jpg";
+import user4 from "../../assets/images/user4-128x128.jpg";
+import defualt_image from "../../assets/images/default-150x150.png"
+
 const Dashboard = () => {
 
   const [monthlyRecapReportActions, setMonthlyRecapReportActions] = useState("");
+  const [monthlyRecapReportMinus, setMonthlyRecapReportMinus] = useState("");
+  const [monthlyRecapReportRemove, setMonthlyRecapReportRemove] = useState("show");
+  const [mapBoxRemove, setMapBoxRemove] = useState("show");
+  const [mapBoxMinus, setMapBoxMinus] = useState("");
+  const [directChatMinus, setDirectChatMinus] = useState("");
+  const [directChatRemove, setDirectChatRemove] = useState("show");
+  const [showListAccount, setShowListAccount] = useState("");
+  const [lastOrderMinus, setLastOrderMinus] = useState("");
+  const [lastOrderRemove, setLastOrderRemove] = useState("show");
+  const [userListRemove, setUserListRemove] = useState("show");
+  const [userlistMinus, setUserListMinus] = useState("");
+  const [browserUsage, setBrowserUsage] = useState("show");
+  const [productListRemove, setProductListRemove] = useState("show");
+  const [productListMinus, setProductListMinus] = useState("");
+
+  const shwoMonthlyRecapReportDropDown = () => {
+    if (monthlyRecapReportActions.length == 0) {
+      setMonthlyRecapReportActions("show");
+    } else {
+      setMonthlyRecapReportActions("");
+    }
+  }
+
+  const doMonthlyRecapReportMinus = () => {
+    if (monthlyRecapReportMinus == "") {
+      setMonthlyRecapReportMinus("collapsed-card");
+    } else {
+      setMonthlyRecapReportMinus("");
+    }
+  }
+
+  const labels = ["January", "February", "March", "April", "May", "June"];
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: [0, 10, 5, 2, 20, 30, 45],
+      },
+    ],
+  };
+
+  const doMapBoxMinus = () => {
+    if (mapBoxMinus == "") {
+      setMapBoxMinus("collapsed-card");
+    } else {
+      setMapBoxMinus("");
+    }
+  }
+
+  const doDirectChatMinus = () => {
+    if (directChatMinus == "") {
+      setDirectChatMinus("collapsed-card");
+    } else {
+      setDirectChatMinus("");
+    }
+  }
+
+  const doListAccount = () => {
+    if (showListAccount == "") {
+      setShowListAccount("direct-chat-contacts-open");
+    } else {
+      setShowListAccount("");
+    }
+  }
+
+  const doLastOrderMinus = () => {
+    if (lastOrderMinus == "") {
+      setLastOrderMinus("collapsed-card");
+    } else {
+      setLastOrderMinus("");
+    }
+  }
+
+  const doUserListMinus = () => {
+    if (userlistMinus == "") {
+      setUserListMinus("collapsed-card");
+    } else {
+      setUserListMinus("");
+    }
+  }
+
+  const doBrowserUsageMinus = () => {
+    if (browserUsage == "") {
+      setBrowserUsage("collapsed-card");
+    } else {
+      setBrowserUsage("");
+    }
+  }
+
+  const doProductLIstMinus = () => {
+    if (productListMinus == "") {
+      setProductListMinus("collapsed-card");
+    } else {
+      setProductListMinus("");
+    }
+  }
+
+  const dataPie = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
     <div>
@@ -83,26 +235,26 @@ const Dashboard = () => {
       {/* /.row */}
       <div className="row">
         <div className="col-md-12">
-          <div className="card">
+          <div className={`card ${monthlyRecapReportMinus}`} style={{display: `${monthlyRecapReportRemove}`}}>
             <div className="card-header">
               <h5 className="card-title">Monthly Recap Report</h5>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                  <FontAwesomeIcon icon={(fas, faMinus)} />
+                <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={doMonthlyRecapReportMinus}>
+                  {monthlyRecapReportMinus == "" ?  <FontAwesomeIcon icon={(fas, faMinus)} /> :  <FontAwesomeIcon icon={(fas, faPlus)} /> }
                 </button>
                 <div className={`btn-group ${monthlyRecapReportActions}`}>
-                  <button type="button" className="btn btn-tool dropdown-toggle" onClick={()=> setMonthlyRecapReportActions("show")}>
+                  <button type="button" className="btn btn-tool dropdown-toggle" onClick={shwoMonthlyRecapReportDropDown}>
                     <FontAwesomeIcon icon={(fas, faWrench)} />
                   </button>
-                  <div className="dropdown-menu dropdown-menu-right" role="menu">
-                    <a href="#" className="dropdown-item">Action</a>
-                    <a href="#" className="dropdown-item">Another action</a>
-                    <a href="#" className="dropdown-item">Something else here</a>
+                  <div className={`dropdown-menu dropdown-menu-right ${monthlyRecapReportActions}`} role="menu">
+                    <a href="javascript:;" className="dropdown-item">Action</a>
+                    <a href="javascript:;" className="dropdown-item">Another action</a>
+                    <a href="javascript:;" className="dropdown-item">Something else here</a>
                     <a className="dropdown-divider" />
-                    <a href="#" className="dropdown-item">Separated link</a>
+                    <a href="javascript:;" className="dropdown-item">Separated link</a>
                   </div>
                 </div>
-                <button type="button" className="btn btn-tool" data-card-widget="remove">
+                <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={()=> setMonthlyRecapReportRemove("none")}>
                   <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
@@ -116,7 +268,7 @@ const Dashboard = () => {
                   </p>
                   <div className="chart">
                     {/* Sales Chart Canvas */}
-                    <canvas id="salesChart" height={180} style={{height: '180px'}} />
+                    <Line data={data} />
                   </div>
                   {/* /.chart-responsive */}
                 </div>
@@ -167,7 +319,9 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col-sm-3 col-6">
                   <div className="description-block border-right">
-                    <span className="description-percentage text-success"><i className="fas fa-caret-up" /> 17%</span>
+                    <span className="description-percentage text-success">
+                    <FontAwesomeIcon icon={(fas, faCaretUp)} /> 17%
+                    </span>
                     <h5 className="description-header">$35,210.43</h5>
                     <span className="description-text">TOTAL REVENUE</span>
                   </div>
@@ -176,7 +330,9 @@ const Dashboard = () => {
                 {/* /.col */}
                 <div className="col-sm-3 col-6">
                   <div className="description-block border-right">
-                    <span className="description-percentage text-warning"><i className="fas fa-caret-left" /> 0%</span>
+                    <span className="description-percentage text-warning">
+                    <FontAwesomeIcon icon={(fas, faCaretLeft)} /> 0%
+                    </span>
                     <h5 className="description-header">$10,390.90</h5>
                     <span className="description-text">TOTAL COST</span>
                   </div>
@@ -185,7 +341,10 @@ const Dashboard = () => {
                 {/* /.col */}
                 <div className="col-sm-3 col-6">
                   <div className="description-block border-right">
-                    <span className="description-percentage text-success"><i className="fas fa-caret-up" /> 20%</span>
+                    <span className="description-percentage text-success">
+                    <FontAwesomeIcon icon={(fas, faCaretUp)} />
+                     20%
+                     </span>
                     <h5 className="description-header">$24,813.53</h5>
                     <span className="description-text">TOTAL PROFIT</span>
                   </div>
@@ -194,7 +353,9 @@ const Dashboard = () => {
                 {/* /.col */}
                 <div className="col-sm-3 col-6">
                   <div className="description-block">
-                    <span className="description-percentage text-danger"><i className="fas fa-caret-down" /> 18%</span>
+                    <span className="description-percentage text-danger">
+                    <FontAwesomeIcon icon={(fas, faCaretDown)} /> 18%
+                    </span>
                     <h5 className="description-header">1200</h5>
                     <span className="description-text">GOAL COMPLETIONS</span>
                   </div>
@@ -215,26 +376,41 @@ const Dashboard = () => {
         {/* Left col */}
         <div className="col-md-8">
           {/* MAP & BOX PANE */}
-          <div className="card">
+          <div className={`card ${mapBoxMinus}`} style={{display: `${mapBoxRemove}`}}>
             <div className="card-header">
-              <h3 className="card-title">US-Visitors Report</h3>
+              <h3 className="card-title">IRAN-Visitors Report</h3>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                  <i className="fas fa-minus" />
+                <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={doMapBoxMinus}>
+                  {mapBoxMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
                 </button>
-                <button type="button" className="btn btn-tool" data-card-widget="remove">
-                  <i className="fas fa-times" />
+                <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={() => setMapBoxRemove("none")}>
+                  <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
             </div>
             {/* /.card-header */}
             <div className="card-body p-0">
-              <div className="d-md-flex">
+              <div className="d-md-flex"> 
                 <div className="p-1 flex-fill" style={{overflow: 'hidden'}}>
-                  {/* Map will be created here */}
-                  <div id="world-map-markers" style={{height: '325px', overflow: 'hidden'}}>
-                    <div className="map" />
+                  {/* Map will be created here TODO: NEED TO WORK  https://masoudnemati.github.io/iran-map/?%D8%B2%D8%A7%D9%88%D9%87=%D8%B2%D8%A7%D9%88%D9%87  <IranMap />*/}
+                  <div className="hero">
+                    <IranMap />
                   </div>
+                  <style jsx="true">{`
+                    .hero {
+                      display: flex;
+                      flex-direction: row-reverse;
+                      justify-content: flex-start;
+                      align-items: flex-start;
+                    }
+                    @media only screen and (max-width: 1200px) {
+                      .hero {
+                        display: flex;
+                        flex-direction: column-reverse;
+                      }
+                    }
+                  `}</style>
+                  
                 </div>
                 <div className="card-pane-right bg-success pt-2 pb-2 pl-4 pr-4">
                   <div className="description-block mb-4">
@@ -264,19 +440,22 @@ const Dashboard = () => {
           <div className="row">
             <div className="col-md-6">
               {/* DIRECT CHAT */}
-              <div className="card direct-chat direct-chat-warning">
+              <div className={`card direct-chat direct-chat-warning ${directChatMinus} ${showListAccount}`} style={{display: directChatRemove}}>
                 <div className="card-header">
                   <h3 className="card-title">Direct Chat</h3>
                   <div className="card-tools">
                     <span title="3 New Messages" className="badge badge-warning">3</span>
-                    <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                      <i className="fas fa-minus" />
+                    <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={doDirectChatMinus}>
+                      {directChatMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                      
                     </button>
-                    <button type="button" className="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
-                      <i className="fas fa-comments" />
+                    <button type="button" className="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle"
+                    onClick={doListAccount}>
+                      <FontAwesomeIcon icon={(fas, faComments)} />
                     </button>
-                    <button type="button" className="btn btn-tool" data-card-widget="remove">
-                      <i className="fas fa-times" />
+                    <button type="button" className="btn btn-tool" data-card-widget="remove"
+                    onClick={()=>setDirectChatRemove("none")}>
+                      <FontAwesomeIcon icon={(fas, faTimes)} />
                     </button>
                   </div>
                 </div>
@@ -291,7 +470,7 @@ const Dashboard = () => {
                         <span className="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                       </div>
                       {/* /.direct-chat-infos */}
-                      <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" />
+                      <img className="direct-chat-img" src={user1} alt="message user image" />
                       {/* /.direct-chat-img */}
                       <div className="direct-chat-text">
                         Is this template really for free? That's unbelievable!
@@ -306,7 +485,7 @@ const Dashboard = () => {
                         <span className="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                       </div>
                       {/* /.direct-chat-infos */}
-                      <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" />
+                      <img className="direct-chat-img" src={user3} alt="message user image" />
                       {/* /.direct-chat-img */}
                       <div className="direct-chat-text">
                         You better believe it!
@@ -321,7 +500,7 @@ const Dashboard = () => {
                         <span className="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                       </div>
                       {/* /.direct-chat-infos */}
-                      <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" />
+                      <img className="direct-chat-img" src={user1} alt="message user image" />
                       {/* /.direct-chat-img */}
                       <div className="direct-chat-text">
                         Working with AdminLTE on a great new app! Wanna join?
@@ -336,7 +515,7 @@ const Dashboard = () => {
                         <span className="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
                       </div>
                       {/* /.direct-chat-infos */}
-                      <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" />
+                      <img className="direct-chat-img" src={user3} alt="message user image" />
                       {/* /.direct-chat-img */}
                       <div className="direct-chat-text">
                         I would love to.
@@ -350,8 +529,8 @@ const Dashboard = () => {
                   <div className="direct-chat-contacts">
                     <ul className="contacts-list">
                       <li>
-                        <a href="#">
-                          <img className="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Avatar" />
+                        <a href="javascript:;">
+                          <img className="contacts-list-img" src={user1} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Count Dracula
@@ -364,8 +543,8 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="#">
-                          <img className="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Avatar" />
+                        <a href="javascript:;">
+                          <img className="contacts-list-img" src={user7} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Sarah Doe
@@ -378,8 +557,8 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="#">
-                          <img className="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Avatar" />
+                        <a href="javascript:;">
+                          <img className="contacts-list-img" src={user3} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Nadia Jolie
@@ -392,8 +571,8 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="#">
-                          <img className="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Avatar" />
+                        <a href="javascript:;">
+                          <img className="contacts-list-img" src={user5} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Nora S. Vans
@@ -406,8 +585,8 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="#">
-                          <img className="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Avatar" />
+                        <a href="javascript:;">
+                          <img className="contacts-list-img" src={user6} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               John K.
@@ -420,8 +599,8 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="#">
-                          <img className="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Avatar" />
+                        <a href="javascript:;">
+                          <img className="contacts-list-img" src={user8} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Kenneth M.
@@ -456,16 +635,19 @@ const Dashboard = () => {
             {/* /.col */}
             <div className="col-md-6">
               {/* USERS LIST */}
-              <div className="card">
+              <div className={`card ${userlistMinus}`} style={{display: userListRemove}}>
                 <div className="card-header">
                   <h3 className="card-title">Latest Members</h3>
                   <div className="card-tools">
                     <span className="badge badge-danger">8 New Members</span>
-                    <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                      <i className="fas fa-minus" />
+                    <button type="button" className="btn btn-tool" data-card-widget="collapse"
+                    onClick={doUserListMinus}>
+                      {userlistMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                      
                     </button>
-                    <button type="button" className="btn btn-tool" data-card-widget="remove">
-                      <i className="fas fa-times" />
+                    <button type="button" className="btn btn-tool" data-card-widget="remove"
+                    onClick={() => setUserListRemove("none")}>
+                      <FontAwesomeIcon icon={(fas, faTimes)} />
                     </button>
                   </div>
                 </div>
@@ -473,43 +655,43 @@ const Dashboard = () => {
                 <div className="card-body p-0">
                   <ul className="users-list clearfix">
                     <li>
-                      <img src="dist/img/user1-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Alexander Pierce</a>
+                      <img src={user1} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Alexander Pierce</a>
                       <span className="users-list-date">Today</span>
                     </li>
                     <li>
-                      <img src="dist/img/user8-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Norman</a>
+                      <img src={user8} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Norman</a>
                       <span className="users-list-date">Yesterday</span>
                     </li>
                     <li>
-                      <img src="dist/img/user7-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Jane</a>
+                      <img src={user7} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Jane</a>
                       <span className="users-list-date">12 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user6-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">John</a>
+                      <img src={user6} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">John</a>
                       <span className="users-list-date">12 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user2-160x160.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Alexander</a>
+                      <img src={user2} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Alexander</a>
                       <span className="users-list-date">13 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user5-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Sarah</a>
+                      <img src={user5} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Sarah</a>
                       <span className="users-list-date">14 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user4-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Nora</a>
+                      <img src={user4} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Nora</a>
                       <span className="users-list-date">15 Jan</span>
                     </li>
                     <li>
-                      <img src="dist/img/user3-128x128.jpg" alt="User Image" />
-                      <a className="users-list-name" href="#">Nadia</a>
+                      <img src={user3} alt="User Image" />
+                      <a className="users-list-name" href="javascript:;">Nadia</a>
                       <span className="users-list-date">15 Jan</span>
                     </li>
                   </ul>
@@ -527,15 +709,18 @@ const Dashboard = () => {
           </div>
           {/* /.row */}
           {/* TABLE: LATEST ORDERS */}
-          <div className="card">
+          <div className={`card ${lastOrderMinus}`} style={{display: lastOrderRemove}}>
             <div className="card-header border-transparent">
               <h3 className="card-title">Latest Orders</h3>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                  <i className="fas fa-minus" />
+                <button type="button" className="btn btn-tool" data-card-widget="collapse"
+                onClick={doLastOrderMinus}>
+                  {lastOrderMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                  
                 </button>
-                <button type="button" className="btn btn-tool" data-card-widget="remove">
-                  <i className="fas fa-times" />
+                <button type="button" className="btn btn-tool" data-card-widget="remove"
+                onClick={() => setLastOrderRemove("none")}>
+                  <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
             </div>
@@ -553,7 +738,7 @@ const Dashboard = () => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                      <td><a href="javascript:;">OR9842</a></td>
                       <td>Call of Duty IV</td>
                       <td><span className="badge badge-success">Shipped</span></td>
                       <td>
@@ -561,7 +746,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                      <td><a href="javascript:;">OR1848</a></td>
                       <td>Samsung Smart TV</td>
                       <td><span className="badge badge-warning">Pending</span></td>
                       <td>
@@ -569,7 +754,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                      <td><a href="javascript:;">OR7429</a></td>
                       <td>iPhone 6 Plus</td>
                       <td><span className="badge badge-danger">Delivered</span></td>
                       <td>
@@ -577,7 +762,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                      <td><a href="javascript:;">OR7429</a></td>
                       <td>Samsung Smart TV</td>
                       <td><span className="badge badge-info">Processing</span></td>
                       <td>
@@ -585,7 +770,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                      <td><a href="javascript:;">OR1848</a></td>
                       <td>Samsung Smart TV</td>
                       <td><span className="badge badge-warning">Pending</span></td>
                       <td>
@@ -593,7 +778,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                      <td><a href="javascript:;">OR7429</a></td>
                       <td>iPhone 6 Plus</td>
                       <td><span className="badge badge-danger">Delivered</span></td>
                       <td>
@@ -601,7 +786,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                      <td><a href="javascript:;">OR9842</a></td>
                       <td>Call of Duty IV</td>
                       <td><span className="badge badge-success">Shipped</span></td>
                       <td>
@@ -615,8 +800,8 @@ const Dashboard = () => {
             </div>
             {/* /.card-body */}
             <div className="card-footer clearfix">
-              <a href="javascript:void(0)" className="btn btn-sm btn-info float-left">Place New Order</a>
-              <a href="javascript:void(0)" className="btn btn-sm btn-secondary float-right">View All Orders</a>
+              <a href="javascript:;" className="btn btn-sm btn-info float-left">Place New Order</a>
+              <a href="javascript:;" className="btn btn-sm btn-secondary float-right">View All Orders</a>
             </div>
             {/* /.card-footer */}
           </div>
@@ -626,7 +811,9 @@ const Dashboard = () => {
         <div className="col-md-4">
           {/* Info Boxes Style 2 */}
           <div className="info-box mb-3 bg-warning">
-            <span className="info-box-icon"><i className="fas fa-tag" /></span>
+            <span className="info-box-icon">
+            <FontAwesomeIcon icon={(fas, faTag)} />
+            </span>
             <div className="info-box-content">
               <span className="info-box-text">Inventory</span>
               <span className="info-box-number">5,200</span>
@@ -635,7 +822,10 @@ const Dashboard = () => {
           </div>
           {/* /.info-box */}
           <div className="info-box mb-3 bg-success">
-            <span className="info-box-icon"><i className="far fa-heart" /></span>
+            <span className="info-box-icon">
+
+            <FontAwesomeIcon icon={(fas, faHeart)} />
+            </span>
             <div className="info-box-content">
               <span className="info-box-text">Mentions</span>
               <span className="info-box-number">92,050</span>
@@ -644,7 +834,10 @@ const Dashboard = () => {
           </div>
           {/* /.info-box */}
           <div className="info-box mb-3 bg-danger">
-            <span className="info-box-icon"><i className="fas fa-cloud-download-alt" /></span>
+            <span className="info-box-icon">
+            
+            <FontAwesomeIcon icon={(fas, faCloudDownloadAlt)} />
+            </span>
             <div className="info-box-content">
               <span className="info-box-text">Downloads</span>
               <span className="info-box-number">114,381</span>
@@ -653,7 +846,9 @@ const Dashboard = () => {
           </div>
           {/* /.info-box */}
           <div className="info-box mb-3 bg-info">
-            <span className="info-box-icon"><i className="far fa-comment" /></span>
+            <span className="info-box-icon">
+            <FontAwesomeIcon icon={(fas, faComment)} />
+            </span>
             <div className="info-box-content">
               <span className="info-box-text">Direct Messages</span>
               <span className="info-box-number">163,921</span>
@@ -661,37 +856,30 @@ const Dashboard = () => {
             {/* /.info-box-content */}
           </div>
           {/* /.info-box */}
-          <div className="card">
+          <div className={`card ${browserUsage}`} style={{display: browserUsage}}>
             <div className="card-header">
               <h3 className="card-title">Browser Usage</h3>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                  <i className="fas fa-minus" />
+                <button type="button" className="btn btn-tool" data-card-widget="collapse"
+                onClick={doBrowserUsageMinus}>
+                  {browserUsage == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                  
                 </button>
-                <button type="button" className="btn btn-tool" data-card-widget="remove">
-                  <i className="fas fa-times" />
+                <button type="button" className="btn btn-tool" data-card-widget="remove"
+                onClick={() => setBrowserUsage("none")}>
+                  
+                  <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
             </div>
             {/* /.card-header */}
             <div className="card-body">
               <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-12">
                   <div className="chart-responsive">
-                    <canvas id="pieChart" height={150} />
+                    <Pie data={dataPie} />
                   </div>
                   {/* ./chart-responsive */}
-                </div>
-                {/* /.col */}
-                <div className="col-md-4">
-                  <ul className="chart-legend clearfix">
-                    <li><i className="far fa-circle text-danger" /> Chrome</li>
-                    <li><i className="far fa-circle text-success" /> IE</li>
-                    <li><i className="far fa-circle text-warning" /> FireFox</li>
-                    <li><i className="far fa-circle text-info" /> Safari</li>
-                    <li><i className="far fa-circle text-primary" /> Opera</li>
-                    <li><i className="far fa-circle text-secondary" /> Navigator</li>
-                  </ul>
                 </div>
                 {/* /.col */}
               </div>
@@ -701,26 +889,29 @@ const Dashboard = () => {
             <div className="card-footer p-0">
               <ul className="nav nav-pills flex-column">
                 <li className="nav-item">
-                  <a href="#" className="nav-link">
+                  <a href="javascript:;" className="nav-link">
                     United States of America
                     <span className="float-right text-danger">
-                      <i className="fas fa-arrow-down text-sm" />
-                      12%</span>
+                      
+                      <FontAwesomeIcon icon={(fas, faArrowDown)} />
+                       12%</span>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link">
+                  <a href="javascript:;" className="nav-link">
                     India
                     <span className="float-right text-success">
-                      <i className="fas fa-arrow-up text-sm" /> 4%
+                      
+                      <FontAwesomeIcon icon={(fas, faArrowUp)} /> 4%
                     </span>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link">
+                  <a href="javascript:;" className="nav-link">
                     China
                     <span className="float-right text-warning">
-                      <i className="fas fa-arrow-left text-sm" /> 0%
+                     
+                      <FontAwesomeIcon icon={(fas, faArrowLeft)} /> 0%
                     </span>
                   </a>
                 </li>
@@ -730,15 +921,18 @@ const Dashboard = () => {
           </div>
           {/* /.card */}
           {/* PRODUCT LIST */}
-          <div className="card">
+          <div className={`card ${productListMinus}`} style={{display: productListRemove}}>
             <div className="card-header">
               <h3 className="card-title">Recently Added Products</h3>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse">
-                  <i className="fas fa-minus" />
+                <button type="button" className="btn btn-tool" data-card-widget="collapse"
+                onClick={doProductLIstMinus}>
+                  {productListMinus == ""? <FontAwesomeIcon icon={(fas, faMinus)} />: <FontAwesomeIcon icon={(fas, faPlus)} />}
+                  
                 </button>
-                <button type="button" className="btn btn-tool" data-card-widget="remove">
-                  <i className="fas fa-times" />
+                <button type="button" className="btn btn-tool" data-card-widget="remove"
+                onClick={()=> setProductListRemove('none')}>
+                  <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
             </div>
@@ -747,10 +941,10 @@ const Dashboard = () => {
               <ul className="products-list product-list-in-card pl-2 pr-2">
                 <li className="item">
                   <div className="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" className="img-size-50" />
+                    <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:void(0)" className="product-title">Samsung TV
+                    <a href="javascript:;" className="product-title">Samsung TV
                       <span className="badge badge-warning float-right">$1800</span></a>
                     <span className="product-description">
                       Samsung 32" 1080p 60Hz LED Smart HDTV.
@@ -760,10 +954,10 @@ const Dashboard = () => {
                 {/* /.item */}
                 <li className="item">
                   <div className="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" className="img-size-50" />
+                    <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:void(0)" className="product-title">Bicycle
+                    <a href="javascript:;" className="product-title">Bicycle
                       <span className="badge badge-info float-right">$700</span></a>
                     <span className="product-description">
                       26" Mongoose Dolomite Men's 7-speed, Navy Blue.
@@ -773,10 +967,10 @@ const Dashboard = () => {
                 {/* /.item */}
                 <li className="item">
                   <div className="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" className="img-size-50" />
+                    <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:void(0)" className="product-title">
+                    <a href="javascript:;" className="product-title">
                       Xbox One <span className="badge badge-danger float-right">
                         $350
                       </span>
@@ -789,10 +983,10 @@ const Dashboard = () => {
                 {/* /.item */}
                 <li className="item">
                   <div className="product-img">
-                    <img src="dist/img/default-150x150.png" alt="Product Image" className="img-size-50" />
+                    <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:void(0)" className="product-title">PlayStation 4
+                    <a href="javascript:;" className="product-title">PlayStation 4
                       <span className="badge badge-success float-right">$399</span></a>
                     <span className="product-description">
                       PlayStation 4 500GB Console (PS4)
@@ -804,7 +998,7 @@ const Dashboard = () => {
             </div>
             {/* /.card-body */}
             <div className="card-footer text-center">
-              <a href="javascript:void(0)" className="uppercase">View All Products</a>
+              <a href="javascript:;" className="uppercase">View All Products</a>
             </div>
             {/* /.card-footer */}
           </div>
