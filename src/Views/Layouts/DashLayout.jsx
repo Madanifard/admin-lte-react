@@ -32,7 +32,7 @@ const DashLayout = () => {
           <PageHeader />
 
           <section className="content">
-            <div class="container-fluid">
+            <div className="container-fluid">
               <Outlet /> {/* <!-- Main content --> */}
             </div>
           </section>

@@ -247,11 +247,11 @@ const Dashboard = () => {
                     <FontAwesomeIcon icon={(fas, faWrench)} />
                   </button>
                   <div className={`dropdown-menu dropdown-menu-right ${monthlyRecapReportActions}`} role="menu">
-                    <a href="javascript:;" className="dropdown-item">Action</a>
-                    <a href="javascript:;" className="dropdown-item">Another action</a>
-                    <a href="javascript:;" className="dropdown-item">Something else here</a>
+                    <a href="#" className="dropdown-item">Action</a>
+                    <a href="#" className="dropdown-item">Another action</a>
+                    <a href="#" className="dropdown-item">Something else here</a>
                     <a className="dropdown-divider" />
-                    <a href="javascript:;" className="dropdown-item">Separated link</a>
+                    <a href="#" className="dropdown-item">Separated link</a>
                   </div>
                 </div>
                 <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={()=> setMonthlyRecapReportRemove("none")}>
@@ -393,7 +393,7 @@ const Dashboard = () => {
               <div className="d-md-flex"> 
                 <div className="p-1 flex-fill" style={{overflow: 'hidden'}}>
                   {/* Map will be created here TODO: NEED TO WORK  https://masoudnemati.github.io/iran-map/?%D8%B2%D8%A7%D9%88%D9%87=%D8%B2%D8%A7%D9%88%D9%87  <IranMap />*/}
-                  <div className="hero">
+                  {/*<div className="hero">
                     <IranMap />
                   </div>
                   <style jsx="true">{`
@@ -409,7 +409,7 @@ const Dashboard = () => {
                         flex-direction: column-reverse;
                       }
                     }
-                  `}</style>
+                  `}</style>*/}
                   
                 </div>
                 <div className="card-pane-right bg-success pt-2 pb-2 pl-4 pr-4">
@@ -529,7 +529,7 @@ const Dashboard = () => {
                   <div className="direct-chat-contacts">
                     <ul className="contacts-list">
                       <li>
-                        <a href="javascript:;">
+                        <a href="#">
                           <img className="contacts-list-img" src={user1} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
@@ -543,7 +543,7 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="javascript:;">
+                        <a href="#">
                           <img className="contacts-list-img" src={user7} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
@@ -557,7 +557,7 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="javascript:;">
+                        <a href="#">
                           <img className="contacts-list-img" src={user3} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
@@ -571,7 +571,7 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="javascript:;">
+                        <a href="#">
                           <img className="contacts-list-img" src={user5} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
@@ -585,7 +585,7 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="javascript:;">
+                        <a href="#">
                           <img className="contacts-list-img" src={user6} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
@@ -599,7 +599,7 @@ const Dashboard = () => {
                       </li>
                       {/* End Contact Item */}
                       <li>
-                        <a href="javascript:;">
+                        <a href="#">
                           <img className="contacts-list-img" src={user8} alt="User Avatar" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
@@ -656,42 +656,42 @@ const Dashboard = () => {
                   <ul className="users-list clearfix">
                     <li>
                       <img src={user1} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Alexander Pierce</a>
+                      <a className="users-list-name" href="#">Alexander Pierce</a>
                       <span className="users-list-date">Today</span>
                     </li>
                     <li>
                       <img src={user8} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Norman</a>
+                      <a className="users-list-name" href="#">Norman</a>
                       <span className="users-list-date">Yesterday</span>
                     </li>
                     <li>
                       <img src={user7} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Jane</a>
+                      <a className="users-list-name" href="#">Jane</a>
                       <span className="users-list-date">12 Jan</span>
                     </li>
                     <li>
                       <img src={user6} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">John</a>
+                      <a className="users-list-name" href="#">John</a>
                       <span className="users-list-date">12 Jan</span>
                     </li>
                     <li>
                       <img src={user2} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Alexander</a>
+                      <a className="users-list-name" href="#">Alexander</a>
                       <span className="users-list-date">13 Jan</span>
                     </li>
                     <li>
                       <img src={user5} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Sarah</a>
+                      <a className="users-list-name" href="#">Sarah</a>
                       <span className="users-list-date">14 Jan</span>
                     </li>
                     <li>
                       <img src={user4} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Nora</a>
+                      <a className="users-list-name" href="#">Nora</a>
                       <span className="users-list-date">15 Jan</span>
                     </li>
                     <li>
                       <img src={user3} alt="User Image" />
-                      <a className="users-list-name" href="javascript:;">Nadia</a>
+                      <a className="users-list-name" href="#">Nadia</a>
                       <span className="users-list-date">15 Jan</span>
                     </li>
                   </ul>
@@ -699,7 +699,7 @@ const Dashboard = () => {
                 </div>
                 {/* /.card-body */}
                 <div className="card-footer text-center">
-                  <a href="javascript:">View All Users</a>
+                  <a href="#">View All Users</a>
                 </div>
                 {/* /.card-footer */}
               </div>
@@ -738,7 +738,7 @@ const Dashboard = () => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td><a href="javascript:;">OR9842</a></td>
+                      <td><a href="#">OR9842</a></td>
                       <td>Call of Duty IV</td>
                       <td><span className="badge badge-success">Shipped</span></td>
                       <td>
@@ -746,7 +746,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="javascript:;">OR1848</a></td>
+                      <td><a href="#">OR1848</a></td>
                       <td>Samsung Smart TV</td>
                       <td><span className="badge badge-warning">Pending</span></td>
                       <td>
@@ -754,7 +754,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="javascript:;">OR7429</a></td>
+                      <td><a href="#">OR7429</a></td>
                       <td>iPhone 6 Plus</td>
                       <td><span className="badge badge-danger">Delivered</span></td>
                       <td>
@@ -762,7 +762,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="javascript:;">OR7429</a></td>
+                      <td><a href="#">OR7429</a></td>
                       <td>Samsung Smart TV</td>
                       <td><span className="badge badge-info">Processing</span></td>
                       <td>
@@ -770,7 +770,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="javascript:;">OR1848</a></td>
+                      <td><a href="#">OR1848</a></td>
                       <td>Samsung Smart TV</td>
                       <td><span className="badge badge-warning">Pending</span></td>
                       <td>
@@ -778,7 +778,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="javascript:;">OR7429</a></td>
+                      <td><a href="#">OR7429</a></td>
                       <td>iPhone 6 Plus</td>
                       <td><span className="badge badge-danger">Delivered</span></td>
                       <td>
@@ -786,7 +786,7 @@ const Dashboard = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td><a href="javascript:;">OR9842</a></td>
+                      <td><a href="#">OR9842</a></td>
                       <td>Call of Duty IV</td>
                       <td><span className="badge badge-success">Shipped</span></td>
                       <td>
@@ -800,8 +800,8 @@ const Dashboard = () => {
             </div>
             {/* /.card-body */}
             <div className="card-footer clearfix">
-              <a href="javascript:;" className="btn btn-sm btn-info float-left">Place New Order</a>
-              <a href="javascript:;" className="btn btn-sm btn-secondary float-right">View All Orders</a>
+              <a href="#" className="btn btn-sm btn-info float-left">Place New Order</a>
+              <a href="#" className="btn btn-sm btn-secondary float-right">View All Orders</a>
             </div>
             {/* /.card-footer */}
           </div>
@@ -889,7 +889,7 @@ const Dashboard = () => {
             <div className="card-footer p-0">
               <ul className="nav nav-pills flex-column">
                 <li className="nav-item">
-                  <a href="javascript:;" className="nav-link">
+                  <a href="#" className="nav-link">
                     United States of America
                     <span className="float-right text-danger">
                       
@@ -898,7 +898,7 @@ const Dashboard = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="javascript:;" className="nav-link">
+                  <a href="#" className="nav-link">
                     India
                     <span className="float-right text-success">
                       
@@ -907,7 +907,7 @@ const Dashboard = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="javascript:;" className="nav-link">
+                  <a href="#" className="nav-link">
                     China
                     <span className="float-right text-warning">
                      
@@ -944,7 +944,7 @@ const Dashboard = () => {
                     <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:;" className="product-title">Samsung TV
+                    <a href="#" className="product-title">Samsung TV
                       <span className="badge badge-warning float-right">$1800</span></a>
                     <span className="product-description">
                       Samsung 32" 1080p 60Hz LED Smart HDTV.
@@ -957,7 +957,7 @@ const Dashboard = () => {
                     <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:;" className="product-title">Bicycle
+                    <a href="#" className="product-title">Bicycle
                       <span className="badge badge-info float-right">$700</span></a>
                     <span className="product-description">
                       26" Mongoose Dolomite Men's 7-speed, Navy Blue.
@@ -970,7 +970,7 @@ const Dashboard = () => {
                     <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:;" className="product-title">
+                    <a href="#" className="product-title">
                       Xbox One <span className="badge badge-danger float-right">
                         $350
                       </span>
@@ -986,7 +986,7 @@ const Dashboard = () => {
                     <img src={defualt_image} alt="Product Image" className="img-size-50" />
                   </div>
                   <div className="product-info">
-                    <a href="javascript:;" className="product-title">PlayStation 4
+                    <a href="#" className="product-title">PlayStation 4
                       <span className="badge badge-success float-right">$399</span></a>
                     <span className="product-description">
                       PlayStation 4 500GB Console (PS4)
@@ -998,7 +998,7 @@ const Dashboard = () => {
             </div>
             {/* /.card-body */}
             <div className="card-footer text-center">
-              <a href="javascript:;" className="uppercase">View All Products</a>
+              <a href="#" className="uppercase">View All Products</a>
             </div>
             {/* /.card-footer */}
           </div>
