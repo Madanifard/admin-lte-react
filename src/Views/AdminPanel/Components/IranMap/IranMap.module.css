@@ -12,7 +12,7 @@
 
 .show_title {
   display: block;
-  position: absolute;
+  /* position: absolute; */
   background-color: #333;
   color: #fff;
   margin: 0;

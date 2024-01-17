@@ -393,7 +393,7 @@ const Dashboard = () => {
               <div className="d-md-flex"> 
                 <div className="p-1 flex-fill" style={{overflow: 'hidden'}}>
                   {/* Map will be created here TODO: NEED TO WORK  https://masoudnemati.github.io/iran-map/?%D8%B2%D8%A7%D9%88%D9%87=%D8%B2%D8%A7%D9%88%D9%87  <IranMap />*/}
-                  {/*<div className="hero">
+                  <div className="hero">
                     <IranMap />
                   </div>
                   <style jsx="true">{`
@@ -409,7 +409,7 @@ const Dashboard = () => {
                         flex-direction: column-reverse;
                       }
                     }
-                  `}</style>*/}
+                  `}</style>
                   
                 </div>
                 <div className="card-pane-right bg-success pt-2 pb-2 pl-4 pr-4">

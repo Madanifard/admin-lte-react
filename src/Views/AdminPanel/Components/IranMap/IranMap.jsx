@@ -29,13 +29,14 @@ const IranMap = () => {
   const [mapZoom, setMapZoom] = useState(false);
   const [provinceSelected, setProvinceSelected] = useState(false);
   const [cities, setCities] = useState(["تمام ایران"]);
-  
+
   return (
     <>
-      <span className={styles.show_title}>
+
+      <span id="showTitleProvinceName" className={styles.show_title}>
         {provinceName}
         <style jsx="true">{`
-          span {
+          #showTitleProvinceName {
             left: ${x + 5 + "px"};
             top: ${y + 5 + "px"};
             z-index: 999;
