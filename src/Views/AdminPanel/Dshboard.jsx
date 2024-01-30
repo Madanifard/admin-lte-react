@@ -37,35 +37,77 @@ import defualt_image from "../../assets/images/default-150x150.png"
 
 const Dashboard = () => {
 
-  const [monthlyRecapReportActions, setMonthlyRecapReportActions] = useState("");
-  const [monthlyRecapReportMinus, setMonthlyRecapReportMinus] = useState("");
-  const [monthlyRecapReportRemove, setMonthlyRecapReportRemove] = useState("show");
-  const [mapBoxRemove, setMapBoxRemove] = useState("show");
-  const [mapBoxMinus, setMapBoxMinus] = useState("");
-  const [directChatMinus, setDirectChatMinus] = useState("");
-  const [directChatRemove, setDirectChatRemove] = useState("show");
-  const [showListAccount, setShowListAccount] = useState("");
-  const [lastOrderMinus, setLastOrderMinus] = useState("");
-  const [lastOrderRemove, setLastOrderRemove] = useState("show");
-  const [userListRemove, setUserListRemove] = useState("show");
-  const [userlistMinus, setUserListMinus] = useState("");
-  const [browserUsage, setBrowserUsage] = useState("show");
-  const [productListRemove, setProductListRemove] = useState("show");
-  const [productListMinus, setProductListMinus] = useState("");
+  const sectionState = {
+    monthlyRecapReport: {
+      minus: "", // collapsed-card
+      display: "show"
+    },
+    mapBox: {
+      minus: "",
+      display: "show"
+    },
+    directChat: {
+      minus: "",
+      display: "show"
+    },
+    lastOrder: {
+      minus: "",
+      display: "show",
+    },
+    userList: {
+      minus: "",
+      display: "show",
+    },
+    productList: {
+      minus: "",
+      display: "show",
+    }
+  }
+
+  const [statusSection, setStatusSection] = useState(sectionState);
+
+  const sectionAction = (section="", minus="", display="show") => {
+    if (minus == "") {
+      setStatusSection(prevData => ({
+        ...prevData,
+        [section]: {
+          minus: "collapsed-card",
+          display: "show"
+        }
+      }));
+    } else {
+      setStatusSection(prevData => ({
+        ...prevData,
+        [section]: {
+          minus: "",
+          display: "show"
+        }
+      }));
+    }
+
+    if (display == "none") {
+
+      setStatusSection(prevData => ({
+        ...prevData,
+        [section]: {
+          minus: "",
+          display: "none"
+        }
+      }));
+    }
+
+    console.log(statusSection);
+  }
+
+  const [monthlyRecapReportActions, setMonthlyRecapReportActions] = useState(""); //todo ??????
+  const [showListAccount, setShowListAccount] = useState(""); //todo ??????
+  const [browserUsage, setBrowserUsage] = useState("show");  //todo ??????
 
   const shwoMonthlyRecapReportDropDown = () => {
     if (monthlyRecapReportActions.length == 0) {
       setMonthlyRecapReportActions("show");
     } else {
       setMonthlyRecapReportActions("");
-    }
-  }
-
-  const doMonthlyRecapReportMinus = () => {
-    if (monthlyRecapReportMinus == "") {
-      setMonthlyRecapReportMinus("collapsed-card");
-    } else {
-      setMonthlyRecapReportMinus("");
     }
   }
 
@@ -83,22 +125,6 @@ const Dashboard = () => {
     ],
   };
 
-  const doMapBoxMinus = () => {
-    if (mapBoxMinus == "") {
-      setMapBoxMinus("collapsed-card");
-    } else {
-      setMapBoxMinus("");
-    }
-  }
-
-  const doDirectChatMinus = () => {
-    if (directChatMinus == "") {
-      setDirectChatMinus("collapsed-card");
-    } else {
-      setDirectChatMinus("");
-    }
-  }
-
   const doListAccount = () => {
     if (showListAccount == "") {
       setShowListAccount("direct-chat-contacts-open");
@@ -107,35 +133,11 @@ const Dashboard = () => {
     }
   }
 
-  const doLastOrderMinus = () => {
-    if (lastOrderMinus == "") {
-      setLastOrderMinus("collapsed-card");
-    } else {
-      setLastOrderMinus("");
-    }
-  }
-
-  const doUserListMinus = () => {
-    if (userlistMinus == "") {
-      setUserListMinus("collapsed-card");
-    } else {
-      setUserListMinus("");
-    }
-  }
-
   const doBrowserUsageMinus = () => {
     if (browserUsage == "") {
       setBrowserUsage("collapsed-card");
     } else {
       setBrowserUsage("");
-    }
-  }
-
-  const doProductLIstMinus = () => {
-    if (productListMinus == "") {
-      setProductListMinus("collapsed-card");
-    } else {
-      setProductListMinus("");
     }
   }
 
@@ -235,12 +237,12 @@ const Dashboard = () => {
       {/* /.row */}
       <div className="row">
         <div className="col-md-12">
-          <div className={`card ${monthlyRecapReportMinus}`} style={{display: `${monthlyRecapReportRemove}`}}>
+          <div className={`card ${statusSection['monthlyRecapReport']['minus']}`} style={{display: statusSection['monthlyRecapReport']['display']}}>
             <div className="card-header">
               <h5 className="card-title">Monthly Recap Report</h5>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={doMonthlyRecapReportMinus}>
-                  {monthlyRecapReportMinus == "" ?  <FontAwesomeIcon icon={(fas, faMinus)} /> :  <FontAwesomeIcon icon={(fas, faPlus)} /> }
+                <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={()=> sectionAction("monthlyRecapReport", statusSection['monthlyRecapReport']['minus'])}>
+                  {statusSection['monthlyRecapReport']['minus'] == "" ?  <FontAwesomeIcon icon={(fas, faMinus)} /> :  <FontAwesomeIcon icon={(fas, faPlus)} /> }
                 </button>
                 <div className={`btn-group ${monthlyRecapReportActions}`}>
                   <button type="button" className="btn btn-tool dropdown-toggle" onClick={shwoMonthlyRecapReportDropDown}>
@@ -254,7 +256,7 @@ const Dashboard = () => {
                     <a href="#" className="dropdown-item">Separated link</a>
                   </div>
                 </div>
-                <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={()=> setMonthlyRecapReportRemove("none")}>
+                <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={()=> sectionAction("monthlyRecapReport", "", "none")}>
                   <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
@@ -376,14 +378,14 @@ const Dashboard = () => {
         {/* Left col */}
         <div className="col-md-8">
           {/* MAP & BOX PANE */}
-          <div className={`card ${mapBoxMinus}`} style={{display: `${mapBoxRemove}`}}>
+          <div className={`card ${statusSection['mapBox']['minus']}`} style={{display: `${statusSection['mapBox']['display']}`}}>
             <div className="card-header">
               <h3 className="card-title">IRAN-Visitors Report</h3>
               <div className="card-tools">
-                <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={doMapBoxMinus}>
-                  {mapBoxMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={() => sectionAction("mapBox", statusSection['mapBox']['minus'])}>
+                  {statusSection['mapBox']['minus'] == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
                 </button>
-                <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={() => setMapBoxRemove("none")}>
+                <button type="button" className="btn btn-tool" data-card-widget="remove" onClick={() => sectionAction("mapBox", "", "none")}>
                   <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
@@ -440,13 +442,13 @@ const Dashboard = () => {
           <div className="row">
             <div className="col-md-6">
               {/* DIRECT CHAT */}
-              <div className={`card direct-chat direct-chat-warning ${directChatMinus} ${showListAccount}`} style={{display: directChatRemove}}>
+              <div className={`card direct-chat direct-chat-warning ${statusSection['directChat']['minus']} ${showListAccount}`} style={{display: statusSection['directChat']['display']}}>
                 <div className="card-header">
                   <h3 className="card-title">Direct Chat</h3>
                   <div className="card-tools">
                     <span title="3 New Messages" className="badge badge-warning">3</span>
-                    <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={doDirectChatMinus}>
-                      {directChatMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                    <button type="button" className="btn btn-tool" data-card-widget="collapse" onClick={()=> sectionAction("directChat", statusSection['directChat']['minus'])}>
+                      {statusSection['directChat']['minus'] == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
                       
                     </button>
                     <button type="button" className="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle"
@@ -454,7 +456,7 @@ const Dashboard = () => {
                       <FontAwesomeIcon icon={(fas, faComments)} />
                     </button>
                     <button type="button" className="btn btn-tool" data-card-widget="remove"
-                    onClick={()=>setDirectChatRemove("none")}>
+                    onClick={()=> sectionAction("directChat", "", "none")}>
                       <FontAwesomeIcon icon={(fas, faTimes)} />
                     </button>
                   </div>
@@ -635,18 +637,18 @@ const Dashboard = () => {
             {/* /.col */}
             <div className="col-md-6">
               {/* USERS LIST */}
-              <div className={`card ${userlistMinus}`} style={{display: userListRemove}}>
+              <div className={`card ${statusSection['userList']['minus']}`} style={{display: statusSection['userList']['display']}}>
                 <div className="card-header">
                   <h3 className="card-title">Latest Members</h3>
                   <div className="card-tools">
                     <span className="badge badge-danger">8 New Members</span>
                     <button type="button" className="btn btn-tool" data-card-widget="collapse"
-                    onClick={doUserListMinus}>
-                      {userlistMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                    onClick={()=> sectionAction("userList", statusSection['userList']['minus'])}>
+                      {statusSection['userList']['minus'] == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
                       
                     </button>
                     <button type="button" className="btn btn-tool" data-card-widget="remove"
-                    onClick={() => setUserListRemove("none")}>
+                    onClick={()=> sectionAction("userList", "", "none")}>
                       <FontAwesomeIcon icon={(fas, faTimes)} />
                     </button>
                   </div>
@@ -709,17 +711,17 @@ const Dashboard = () => {
           </div>
           {/* /.row */}
           {/* TABLE: LATEST ORDERS */}
-          <div className={`card ${lastOrderMinus}`} style={{display: lastOrderRemove}}>
+          <div className={`card ${statusSection['lastOrder']['minus']}`} style={{display: statusSection['lastOrder']['display']}}>
             <div className="card-header border-transparent">
               <h3 className="card-title">Latest Orders</h3>
               <div className="card-tools">
                 <button type="button" className="btn btn-tool" data-card-widget="collapse"
-                onClick={doLastOrderMinus}>
-                  {lastOrderMinus == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
+                onClick={()=> sectionAction("lastOrder", statusSection['lastOrder']['minus'])}>
+                  {statusSection['lastOrder']['minus'] == "" ? <FontAwesomeIcon icon={(fas, faMinus)} /> : <FontAwesomeIcon icon={(fas, faPlus)} />}
                   
                 </button>
                 <button type="button" className="btn btn-tool" data-card-widget="remove"
-                onClick={() => setLastOrderRemove("none")}>
+                onClick={()=> sectionAction("lastOrder", "", "none")}>
                   <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
@@ -921,17 +923,17 @@ const Dashboard = () => {
           </div>
           {/* /.card */}
           {/* PRODUCT LIST */}
-          <div className={`card ${productListMinus}`} style={{display: productListRemove}}>
+          <div className={`card ${statusSection['productList']['minus']}`} style={{display: statusSection['productList']['display']}}>
             <div className="card-header">
               <h3 className="card-title">Recently Added Products</h3>
               <div className="card-tools">
                 <button type="button" className="btn btn-tool" data-card-widget="collapse"
-                onClick={doProductLIstMinus}>
-                  {productListMinus == ""? <FontAwesomeIcon icon={(fas, faMinus)} />: <FontAwesomeIcon icon={(fas, faPlus)} />}
+                onClick={()=> sectionAction("productList", statusSection['productList']['minus'])}>
+                  {statusSection['productList']['minus'] == "" ? <FontAwesomeIcon icon={(fas, faMinus)} />: <FontAwesomeIcon icon={(fas, faPlus)} />}
                   
                 </button>
                 <button type="button" className="btn btn-tool" data-card-widget="remove"
-                onClick={()=> setProductListRemove('none')}>
+                onClick={()=> sectionAction("productList", "", "none")}>
                   <FontAwesomeIcon icon={(fas, faTimes)} />
                 </button>
               </div>
