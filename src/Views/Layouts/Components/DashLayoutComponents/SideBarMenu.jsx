@@ -16,6 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 const SideBarMenu = () => {
   //menu-is-opening menu-open
@@ -72,10 +73,10 @@ const SideBarMenu = () => {
           </a>
           <ul className="nav nav-treeview">
             <li className="nav-item">
-              <a href="#" className="nav-link">
+              <Link to="/dash" className="nav-link">
                 <FontAwesomeIcon icon={(far, faCircle)} className="faNavicon" />
                 <p> Dashboard v1</p>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a href="#" className="nav-link">
@@ -93,14 +94,14 @@ const SideBarMenu = () => {
           </ul>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+        <Link to="/widget" className="nav-link">
             <FontAwesomeIcon icon={(fas, faNavicon, faTh)} />
             <p>
               {" "}
               Widgets
               <span className="right badge badge-danger">New</span>
             </p>
-          </a>
+            </Link>
         </li>
         <li className={`nav-item ${stateMenu["layoutOption"]}`}>
           <a className="nav-link" onClick={() => menu("layoutOption")}>

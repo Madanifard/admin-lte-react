@@ -3,6 +3,7 @@ import { Login, Register, ForgetPassword } from "./Views/Auth";
 import { Dashboard } from "./Views/AdminPanel";
 import AuthLayout from "./Views/Layouts/AuthLayout";
 import DashLayout from "./Views/Layouts/DashLayout";
+import Widget from "./Views/AdminPanel/widget";
 
 const routes = createBrowserRouter([
   {
@@ -15,8 +16,11 @@ const routes = createBrowserRouter([
   },
   {
     element: <DashLayout />,
-    children: [{ path: "/dash", element: <Dashboard /> }],
-  },
+    children: [
+      { path: "/dash", element: <Dashboard /> },
+      { path: "/widget", element: <Widget />}
+    ],
+  }
 ]);
 
 export default routes;
