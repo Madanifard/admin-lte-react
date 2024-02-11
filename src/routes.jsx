@@ -3,7 +3,7 @@ import { Login, Register, ForgetPassword } from "./Views/Auth";
 import { Dashboard } from "./Views/AdminPanel";
 import AuthLayout from "./Views/Layouts/AuthLayout";
 import DashLayout from "./Views/Layouts/DashLayout";
-import Widget from "./Views/AdminPanel/widget";
+import Widget from "./Views/AdminPanel/Widget";
 
 const routes = createBrowserRouter([
   {
