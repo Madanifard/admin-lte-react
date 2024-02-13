@@ -24,6 +24,14 @@ import {
   faShare,
 } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
+import user1 from "../../assets/images/user1-128x128.jpg";
+import user3 from "../../assets/images/user3-128x128.jpg";
+import user4 from "../../assets/images/user4-128x128.jpg";
+import user5 from "../../assets/images/user5-128x128.jpg";
+import user7 from "../../assets/images/user7-128x128.jpg";
+import photo1 from "../../assets/images/photo1.png";
+import photo2 from "../../assets/images/photo2.png";
+import photo3 from "../../assets/images/photo3.jpg";
 
 const Widget = () => {
   return (
@@ -1128,7 +1136,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1151,7 +1159,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1168,7 +1176,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -1264,7 +1272,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1287,7 +1295,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1304,7 +1312,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -1400,7 +1408,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1423,7 +1431,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1440,7 +1448,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -1536,7 +1544,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1559,7 +1567,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1576,7 +1584,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -1682,7 +1690,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1705,7 +1713,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1722,7 +1730,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -1818,7 +1826,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1841,7 +1849,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1858,7 +1866,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -1954,7 +1962,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1977,7 +1985,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -1994,7 +2002,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -2090,7 +2098,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user1-128x128.jpg"
+                    src={user1}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -2113,7 +2121,7 @@ const Widget = () => {
                   {/* /.direct-chat-infos */}
                   <img
                     className="direct-chat-img"
-                    src="../dist/img/user3-128x128.jpg"
+                    src={user3}
                     alt="Message User Image"
                   />
                   {/* /.direct-chat-img */}
@@ -2130,7 +2138,7 @@ const Widget = () => {
                     <a href="#">
                       <img
                         className="contacts-list-img"
-                        src="../dist/img/user1-128x128.jpg"
+                        src={user1}
                         alt="User Avatar"
                       />
                       <div className="contacts-list-info">
@@ -2188,7 +2196,7 @@ const Widget = () => {
               <div className="widget-user-image">
                 <img
                   className="img-circle elevation-2"
-                  src="../dist/img/user7-128x128.jpg"
+                  src={user7}
                   alt="User Avatar"
                 />
               </div>
@@ -2238,7 +2246,7 @@ const Widget = () => {
             <div className="widget-user-image">
               <img
                 className="img-circle elevation-2"
-                src="../dist/img/user1-128x128.jpg"
+                src={user1}
                 alt="User Avatar"
               />
             </div>
@@ -2282,7 +2290,7 @@ const Widget = () => {
             <div
               className="widget-user-header text-white"
               style={{
-                background: 'url("../dist/img/photo1.png") center center',
+                background: 'url({photo1}) center center',
               }}
             >
               <h3 className="widget-user-username text-right">
@@ -2293,7 +2301,7 @@ const Widget = () => {
             <div className="widget-user-image">
               <img
                 className="img-circle"
-                src="../dist/img/user3-128x128.jpg"
+                src={user3}
                 alt="User Avatar"
               />
             </div>
@@ -2340,7 +2348,7 @@ const Widget = () => {
               <div className="user-block">
                 <img
                   className="img-circle"
-                  src="../dist/img/user1-128x128.jpg"
+                  src={user1}
                   alt="User Image"
                 />
                 <span className="username">
@@ -2380,7 +2388,7 @@ const Widget = () => {
             <div className="card-body">
               <img
                 className="img-fluid pad"
-                src="../dist/img/photo2.png"
+                src={photo2}
                 alt="Photo"
               />
               <p>I took this photo this morning. What do you guys think?</p>
@@ -2402,7 +2410,7 @@ const Widget = () => {
                 {/* User image */}
                 <img
                   className="img-circle img-sm"
-                  src="../dist/img/user3-128x128.jpg"
+                  src={user3}
                   alt="User Image"
                 />
                 <div className="comment-text">
@@ -2423,7 +2431,7 @@ const Widget = () => {
                 {/* User image */}
                 <img
                   className="img-circle img-sm"
-                  src="../dist/img/user4-128x128.jpg"
+                  src={user4}
                   alt="User Image"
                 />
                 <div className="comment-text">
@@ -2446,7 +2454,7 @@ const Widget = () => {
               <form action="#" method="post">
                 <img
                   className="img-fluid img-circle img-sm"
-                  src="../dist/img/user4-128x128.jpg"
+                  src={user4}
                   alt="Alt Text"
                 />
                 {/* .img-push is used to add margin to elements next to floating images */}
@@ -2471,7 +2479,7 @@ const Widget = () => {
               <div className="user-block">
                 <img
                   className="img-circle"
-                  src="../dist/img/user1-128x128.jpg"
+                  src={user1}
                   alt="User Image"
                 />
                 <span className="username">
@@ -2525,7 +2533,7 @@ const Widget = () => {
               <div className="attachment-block clearfix">
                 <img
                   className="attachment-img"
-                  src="../dist/img/photo1.png"
+                  src={photo1}
                   alt="Attachment Image"
                 />
                 <div className="attachment-pushed">
@@ -2561,7 +2569,7 @@ const Widget = () => {
                 {/* User image */}
                 <img
                   className="img-circle img-sm"
-                  src="../dist/img/user3-128x128.jpg"
+                  src={user3}
                   alt="User Image"
                 />
                 <div className="comment-text">
@@ -2582,7 +2590,7 @@ const Widget = () => {
                 {/* User image */}
                 <img
                   className="img-circle img-sm"
-                  src="../dist/img/user5-128x128.jpg"
+                  src={user5}
                   alt="User Image"
                 />
                 <div className="comment-text">
@@ -2606,7 +2614,7 @@ const Widget = () => {
               <form action="#" method="post">
                 <img
                   className="img-fluid img-circle img-sm"
-                  src="../dist/img/user4-128x128.jpg"
+                  src={user4}
                   alt="Alt Text"
                 />
                 {/* .img-push is used to add margin to elements next to floating images */}
@@ -2642,7 +2650,7 @@ const Widget = () => {
               <div className="widget-user-image">
                 <img
                   className="img-circle elevation-2"
-                  src="../dist/img/user7-128x128.jpg"
+                  src={user7}
                   alt="User Avatar"
                 />
               </div>
@@ -2692,7 +2700,7 @@ const Widget = () => {
             <div className="widget-user-image">
               <img
                 className="img-circle elevation-2"
-                src="../dist/img/user1-128x128.jpg"
+                src={user1}
                 alt="User Avatar"
               />
             </div>
@@ -2736,7 +2744,7 @@ const Widget = () => {
             <div
               className="widget-user-header text-white"
               style={{
-                background: 'url("../dist/img/photo1.png") center center',
+                background: 'url({photo1}) center center',
               }}
             >
               <h3 className="widget-user-username text-right">
@@ -2747,7 +2755,7 @@ const Widget = () => {
             <div className="widget-user-image">
               <img
                 className="img-circle"
-                src="../dist/img/user3-128x128.jpg"
+                src={user3}
                 alt="User Avatar"
               />
             </div>
@@ -2794,7 +2802,7 @@ const Widget = () => {
               <div className="card mb-2 bg-gradient-dark">
                 <img
                   className="card-img-top"
-                  src="../dist/img/photo1.png"
+                  src={photo1}
                   alt="Dist Photo 1"
                 />
                 <div className="card-img-overlay d-flex flex-column justify-content-end">
@@ -2815,7 +2823,7 @@ const Widget = () => {
               <div className="card mb-2">
                 <img
                   className="card-img-top"
-                  src="../dist/img/photo2.png"
+                  src={photo2}
                   alt="Dist Photo 2"
                 />
                 <div className="card-img-overlay d-flex flex-column justify-content-center">
@@ -2837,7 +2845,7 @@ const Widget = () => {
               <div className="card mb-2">
                 <img
                   className="card-img-top"
-                  src="../dist/img/photo3.jpg"
+                  src={photo3}
                   alt="Dist Photo 3"
                 />
                 <div className="card-img-overlay">
